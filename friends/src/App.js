@@ -1,8 +1,11 @@
 import { Switch, Route, Link} from 'react-router-dom';
-import Friends from './components/Friends';
+
 import ProtectedRoute from './components/ProtectedRoute';
+
 import Logout from './components/Logout';
 import Login from './components/Login';
+import Friends from './components/Friends';
+import Friend from './components/Friend';
 
 import './App.css'
 
@@ -10,14 +13,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Freinds List</h1>
+          <h1>Da Homiez</h1>
         <ul>
-          <li className="link">
-            <Link to="/login">Login</Link>
-          </li>
-          <li className="link">
-            <Link to="/logout">Logout</Link>
-          </li>
+          <Link to="/login">
+            <li className="link">
+              Login
+            </li>
+          </Link>
+          <Link to="/logout">
+            <li className="link">
+              Logout
+            </li>
+          </Link>
           {/* <li>
             {isLoggedIn ? <Link to="/protected">Protected Page</Link>:<div></div> }
           </li>
@@ -25,10 +32,10 @@ function App() {
         </ul>
       </header>
       <Switch>
-        <ProtectedRoute exact path="/protected" component={Friends}/>
+        <ProtectedRoute exact path="/friends" component={Friends}/>
+        <ProtectedRoute exact path="/friends/:id" component={Friend}/>
         <ProtectedRoute path="/logout" component={Logout}/>
         <Route path="/login" component={Login} />
-        <Route path="/" component={Login} />
       </Switch>
     </div>
   );
