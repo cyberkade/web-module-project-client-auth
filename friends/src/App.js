@@ -5,7 +5,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Logout from './components/Logout';
 import Login from './components/Login';
 import Friends from './components/Friends';
-import Friend from './components/Friend';
 
 import './App.css'
 
@@ -33,7 +32,6 @@ function App() {
       </header>
       <Switch>
         <ProtectedRoute exact path="/friends" component={Friends}/>
-        <ProtectedRoute exact path="/friends/:id" component={Friend}/>
         <ProtectedRoute path="/logout" component={Logout}/>
         <Route path="/login" component={Login} />
       </Switch>
